@@ -3,12 +3,5 @@
 #include <stdlib.h>
 
 char* solution(int num) {
-    if(num & 0x01)
-    {
-        return "Odd";
-    }
-    else
-    {
-        return "Even";
-    }
+    return (num & 1) ? "Odd" : "Even";
 }
