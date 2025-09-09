@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 char* solution(int num) {
-    if(num % 2 == 0)
+    if((num & 0x01) == 0)
     {
         return "Even";            
     }
