@@ -7,7 +7,7 @@ int compare_char(const void* a, const void* b)
 {
     char arg1 = *(const char*)a;
     char arg2 = *(const char*)b;
-    return (arg1 < arg2) - (arg2 < arg1);
+    return arg2 - arg1;
 }
 
 char* solution(const char* s) {
