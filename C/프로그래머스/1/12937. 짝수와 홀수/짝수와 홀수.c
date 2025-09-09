@@ -3,12 +3,12 @@
 #include <stdlib.h>
 
 char* solution(int num) {
-    if((num & 0x01) == 0)
+    if(num & 0x01)
     {
-        return "Even";            
+        return "Odd";
     }
     else
     {
-        return "Odd";
+        return "Even";
     }
 }
