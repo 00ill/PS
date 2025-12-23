@@ -10,7 +10,7 @@ char* solution(const char* s) {
         if(s[i] == ' ') { S[i] = ' '; index = 0; }
         else
         {
-            if(index % 2 == 0) 
+            if((index & 1) == 0) 
             {
                 S[i] = toupper(s[i]);
             }
