@@ -11,7 +11,6 @@ int* solution(const char* keyinput[], size_t keyinput_len, int board[], size_t b
     answer[0] = 0;
     answer[1] = 0;
     int row_min = (board[1] - 1) / 2, col_min = (board[0] - 1) / 2;
-    printf("%d %d",row_min, col_min);
     for(int i = 0; i < keyinput_len; i++)
     {
         if(keyinput[i][0] == 'l') {answer[0] = answer[0] - 1 > -col_min ? answer[0] - 1 : -col_min;}
