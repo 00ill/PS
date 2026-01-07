@@ -9,13 +9,12 @@ int solution(const char* my_string) {
     {
         if('1' <= my_string[0] && my_string[0] <= '9')
         {
-            const char *temp = my_string + 1;
             int num = my_string[0] - '0';
-            while('0' <= temp[0] && temp[0] <= '9')
+            my_string++;
+            while('0' <= my_string[0] && my_string[0] <= '9')
             {
                 num *= 10;
-                num += temp[0] - '0';
-                temp++;
+                num += my_string[0] - '0';
                 my_string++;
             }
             answer += num;
