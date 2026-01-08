@@ -9,7 +9,6 @@ int solution(const char* skill, const char* skill_trees[], size_t skill_trees_le
     for(int i = 0; i < skill_trees_len; i++)
     {
         char *current = skill_trees[i];
-        printf("%s 스킬트리 검사\n", current);
         while(*current)
         {
             char temp[2];
@@ -17,16 +16,11 @@ int solution(const char* skill, const char* skill_trees[], size_t skill_trees_le
             temp[1] = '\0';
             if(strstr(skill, temp) != NULL)
             {
-                printf("%c는 스킬트리에 있음\n", *current);
-                if(skill[target_index] == *current) {target_index++; printf("%c 를 배울 차례였다\n", *current);}
-                else 
-                {
-                    printf("%c를 배울 차례가 아니였다\n", *current);
-                    break;
-                }
+                if(skill[target_index] == *current) target_index++;
+                else break;
             }
             current++;
-            if(*current == NULL) {answer++;printf("%s는 이상이 없다\n", skill_trees[i]);}
+            if(*current == NULL) answer++;
         }
         target_index = 0;
     }
