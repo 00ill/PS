@@ -1,27 +1,40 @@
-
+#include <string>
+#include <vector>
+#include <stdio.h>
 #include <bits/stdc++.h>
 using namespace std;
 
 int solution(vector<int> priorities, int location) {
-    queue<pair<int,int>> q;
+    int answer = 1;
+    deque<int> q;
     priority_queue<int> pq;
-
-    for (int i = 0; i < (int)priorities.size(); ++i) {
-        q.push({priorities[i], i});
-        pq.push(priorities[i]);
+    if(priorities.size() == 1) return 1;
+    for(auto & i : priorities)
+    {
+        q.push_back(i);
+        pq.push(i);
     }
-
-    int answer = 0;
-    while (!q.empty()) {
-        auto [p, idx] = q.front(); q.pop();
-
-        if (p < pq.top()) {
-            q.push({p, idx});
-        } else {
-            ++answer;
+    
+    while(!q.empty())
+    {
+        if(q[0] < pq.top()) 
+        {
+            q.push_back(q[0]);
+            q.pop_front();
+            if(location == 0) location = q.size() - 1;
+            else location--;
+            continue;
+        }
+        else
+        {
             pq.pop();
-            if (idx == location) return answer;
+            if(location == 0) return answer;
+            else 
+            {
+                answer++;
+                q.pop_front();
+                location--;
+            }
         }
     }
-    return answer;
 }
